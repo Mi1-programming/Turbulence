@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5ecdf250a1c9240a6a01aa59c1bf40, type: 3}
+  m_Name: Bubblegun
+  m_EditorClassIdentifier: 
+  Name: Bubblegun
+  Sprite: {fileID: 21300000, guid: 101dbb9954b5a5340b79ca9f5943cb3d, type: 3}
+  HoldDistance: 1
+  Cooldown: -0.0002792998
+  Bullets: 3
+  BulletSpeed: 12
+  BulletDamage: 3
+  BulletStartDistance: 1
+  Firerate: 20
