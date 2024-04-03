@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float turnSpeed = 10.0f;
     [SerializeField] private float jumpSpeed = 10.0f;
     [SerializeField] private float jumpCooldown = 0.5f;
+    [SerializeField] private UnityEvent onJump;
     private float jumpWaited = 0.0f;
     private Rigidbody2D rb2d;
 
@@ -26,5 +28,6 @@ public class PlayerController : MonoBehaviour
         if (!Input.GetButtonDown(jump)) return;
         jumpWaited = 0.0f;
         rb2d.AddRelativeForce(jumpSpeed * Vector2.right, ForceMode2D.Impulse);
+        onJump.Invoke();
     }
 }

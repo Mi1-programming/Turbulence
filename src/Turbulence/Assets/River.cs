@@ -16,7 +16,7 @@ public class River : MonoBehaviour
     [SerializeField] private float thickness = 4.0f;
     [SerializeField] private float jumpTime = 10.0f;
     [SerializeField] private int step = 4;
-    [SerializeField] private UnityEvent onJump;
+    [SerializeField] private UnityEvent<Vector3> onJump;
 
     private float lastNormal = 0.0f;
     private Vector2 currentPoint = Vector2.zero;
@@ -69,7 +69,7 @@ public class River : MonoBehaviour
         {
             yield return new WaitForSeconds(jumpTime);
             for (int i = 0; i < step; i++) ContinuePath(spline);
-            onJump.Invoke();
+            onJump.Invoke(currentPoint);
         }
     }
 }
