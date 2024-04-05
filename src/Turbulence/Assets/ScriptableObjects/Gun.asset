@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c5ecdf250a1c9240a6a01aa59c1bf40, type: 3}
-  m_Name: Bubblegun
+  m_Name: Gun
   m_EditorClassIdentifier: 
-  Name: Bubblegun
-  Sprite: {fileID: 21300000, guid: 101dbb9954b5a5340b79ca9f5943cb3d, type: 3}
+  Name: Gun
+  Sprite: {fileID: 21300000, guid: f4c1e82776c28c54993adaacdf2df031, type: 3}
+  WeaponScale: 1
   HoldDistance: 1
-  Cooldown: -0.0002792998
-  Bullets: 3
-  BulletSpeed: 12
-  BulletDamage: 3
-  BulletStartDistance: 1
-  Firerate: 20
+  Cooldown: 0.33333334
+  BulletSprite: {fileID: 21300000, guid: 031dc4527d1d4054a9680e694eab71c2, type: 3}
+  BulletAmount: 10
+  BulletSpeed: 8
+  BulletDamage: 20
+  BulletStartDistance: 0.65
+  BulletScale: 0.75
+  Firerate: 3

@@ -16,18 +16,31 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
+        if (Weapon == null) return;
+
+        Weapon.DecreaseCooldown();
         if (Input.GetMouseButton(0))
         {
-            Weapon.Use(transform.position, transform.right);
+            if (Weapon.Use(transform.position, transform.right))
+            {
+                RemoveWeapon();
+            }
         }
-        Weapon.DecreaseCooldown();
     }
 
 
     public void SetWeapon(Weapon weapon)
     {
         Weapon = weapon;
+        Weapon.Setup();
         sr.sprite = weapon.Sprite;
         transform.localPosition = transform.right * Weapon.HoldDistance;
+        transform.localScale = Vector3.one * Weapon.WeaponScale;
+    }
+
+    public void RemoveWeapon()
+    {
+        Weapon = null;
+        sr.sprite = null;
     }
 }
