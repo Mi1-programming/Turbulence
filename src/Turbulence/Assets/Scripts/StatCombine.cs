@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StatCombine : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class StatCombine : MonoBehaviour
     [SerializeField] private Stats stats;
     [SerializeField] private float gain = 0.5f;
     [SerializeField] private int combineChance = 4;
+    [SerializeField] private UnityEvent onCombine;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,6 +19,7 @@ public class StatCombine : MonoBehaviour
         Stat otherStat = collision.gameObject.GetComponent<Stats>().statDictionary[targetStat];
         if (otherStat.CurValue >= myStat.CurValue) return;
         myStat.CurValue += otherStat.CurValue * gain;
+        onCombine.Invoke();
         Destroy(collision.gameObject);
     }
 }
