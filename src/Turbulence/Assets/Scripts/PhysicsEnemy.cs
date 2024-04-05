@@ -13,7 +13,7 @@ public class PhysicsEnemy : Enemy
     {
         if (target == null) return;
 
-        Vector2 dir = Vector3.Normalize(target.transform.position - transform.position) * speedDir;
-        rb2d.AddForce(speed * dir);
+        Vector2 dir = Vector3.Normalize(target.transform.position - transform.position) * targetGroup.speed;
+        rb2d.AddForce(speed * dir * rb2d.mass);
     }
 }
