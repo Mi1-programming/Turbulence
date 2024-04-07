@@ -10,7 +10,6 @@ public class GunWeapon : Weapon
     public float bulletSpeed;
     public float bulletDamage;
     public float firerate;
-    public float bulletLife;
     public float knockback;
     public int magazineSize;
     [NonSerialized] private int ammo;
@@ -31,8 +30,6 @@ public class GunWeapon : Weapon
         bulletScript.damage = bulletDamage;
         bulletScript.speed = bulletSpeed;
         bulletScript.knockback = knockback;
-
-        Destroy(newBullet, bulletLife);
 
         // Bullet count
         ammo--;

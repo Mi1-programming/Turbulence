@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5384513306657062416}
   - component: {fileID: 3613770464987179285}
   - component: {fileID: -8077470318227679299}
+  - component: {fileID: -3284476939705926384}
   m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
@@ -195,3 +196,20 @@ MonoBehaviour:
   destroyOnInstance: 0
   destroyInstancedAfter: 1.5
   overridePosition: {fileID: 0}
+--- !u!114 &-3284476939705926384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8042065907583380077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afded539654851f42acadf0abbf1832f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  despawnTime: 3
+  onDespawn:
+    m_PersistentCalls:
+      m_Calls: []
+  delay: 0

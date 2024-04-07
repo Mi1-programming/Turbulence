@@ -725,7 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fd175753854bf49a925de89f847b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 11400000, guid: 03f4723c400dcac4d83d74606408f673, type: 2}
+  weapon: {fileID: 0}
 --- !u!212 &436434334
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2335,7 +2335,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjects:
   - {fileID: 1409388379226447419, guid: 208241ea08e92a846aed0681a77a4376, type: 3}
-  spawnDonutSize: 20
+  - {fileID: 1409388379226447419, guid: 208241ea08e92a846aed0681a77a4376, type: 3}
+  - {fileID: 1409388379226447419, guid: 208241ea08e92a846aed0681a77a4376, type: 3}
+  - {fileID: 5888011981240869841, guid: 5e98983713bfaa94d89b54d57504fe82, type: 3}
+  spawnDonutSize: 15
   spawnRate: 0.25
   spawnRateIncrease: 0.005
 --- !u!1 &1742416215

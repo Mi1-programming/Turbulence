@@ -1,19 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    public Weapon Weapon;
-
+    public Weapon weapon;
+    public Weapon Weapon
+    {
+        get { return weapon; }
+        set {
+            weapon = value;
+            if (weapon == null)
+            {
+                Weapon = null;
+                sr.sprite = null;
+                return;
+            }
+            weapon.Setup();
+            sr.sprite = weapon.Sprite;
+            transform.localPosition = Vector2.right * weapon.HoldDistance;
+        }
+    }
     private SpriteRenderer sr;
 
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        SetWeapon(Weapon);
     }
-
     private void Update()
     {
         if (Weapon == null) return;
@@ -23,24 +34,8 @@ public class WeaponManager : MonoBehaviour
         {
             if (Weapon.Use(transform.position, transform.right))
             {
-                RemoveWeapon();
+                Weapon = null;
             }
         }
-    }
-
-
-    public void SetWeapon(Weapon weapon)
-    {
-        Weapon = weapon;
-        Weapon.Setup();
-        sr.sprite = weapon.Sprite;
-        transform.localPosition = transform.right * Weapon.HoldDistance;
-        transform.localScale = Vector3.one * Weapon.WeaponScale;
-    }
-
-    public void RemoveWeapon()
-    {
-        Weapon = null;
-        sr.sprite = null;
     }
 }
