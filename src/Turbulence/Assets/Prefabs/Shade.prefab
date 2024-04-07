@@ -53,7 +53,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 30
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -475,8 +475,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - force: 8
-    volume: 0.5
-    pitch: {x: 1, y: 1}
+    volume: 0.35
+    pitch: {x: 0.9, y: 1.1}
     snd: {fileID: 8300000, guid: 1264d9ed00f5b51478f471579f49fc88, type: 3}
   source: {fileID: 8065375118246403708}
 --- !u!114 &2640633506491949450

@@ -21,6 +21,7 @@ public class ParallaxBlitter : MonoBehaviour
     [SerializeField] private ParallaxTarget[] targets;
     [SerializeField] private ParallaxBlit[] parallaxBlits; // The parallax background parts
     [SerializeField] private Material backgroundMaterial; // The material of the parallax
+    [SerializeField] private float scale = 1.0f;
 
     private Dictionary<string, Transform> targetDict = new Dictionary<string, Transform>();
     private Material[] materials; // Store modified parallax materials
@@ -45,6 +46,7 @@ public class ParallaxBlitter : MonoBehaviour
             pBlit.pos = ((pBlit.target != string.Empty) ? (Vector2)targetDict[pBlit.target].position * pBlit.weights : Vector2.zero) + Time.time * pBlit.scroll;
             materials[i].SetFloat("_ScrollX", pBlit.pos.x);
             materials[i].SetFloat("_ScrollY", pBlit.pos.y);
+            materials[i].SetFloat("_Scale", scale);
         }
     }
     private void OnRenderImage(RenderTexture source, RenderTexture destination) {

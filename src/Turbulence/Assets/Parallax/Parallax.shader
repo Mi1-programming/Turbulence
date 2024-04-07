@@ -5,6 +5,7 @@ Shader "Unlit/Parallax"
         _MainTex ("Texture", 2D) = "white" {}
         _ScrollX("ScrollX", FLOAT) = 0
         _ScrollY("ScrollY", FLOAT) = 0
+        _Scale("ScrollY", FLOAT) = 0
     }
     SubShader
     {
@@ -36,12 +37,13 @@ Shader "Unlit/Parallax"
             float4 _MainTex_ST;
             float _ScrollX;
             float _ScrollY;
+            float _Scale;
 
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex) * float2(_ScreenParams.x / _ScreenParams.y, 1) + float2(_ScrollX, _ScrollY) / unity_OrthoParams.y / 2;
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex) * float2(_ScreenParams.x / _ScreenParams.y, 1) * _Scale + float2(_ScrollX, _ScrollY) / unity_OrthoParams.y / 2;
                 return o;
             }
             fixed4 frag (v2f i) : SV_Target

@@ -447,8 +447,8 @@ Canvas:
   m_GameObject: {fileID: 120514961}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -458,7 +458,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1398907391
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &120514965
@@ -613,6 +613,7 @@ MonoBehaviour:
     scroll: {x: 0.5, y: 0.5}
     pos: {x: 0, y: 0}
   backgroundMaterial: {fileID: 2100000, guid: 9b61ff2052f26e242817228b12b12a1b, type: 2}
+  scale: 1
 --- !u!20 &209177741
 Camera:
   m_ObjectHideFlags: 0
@@ -724,7 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fd175753854bf49a925de89f847b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 11400000, guid: c2c06a1e2b6a1ab4eb0f474b8e3e048b, type: 2}
+  Weapon: {fileID: 11400000, guid: 03f4723c400dcac4d83d74606408f673, type: 2}
 --- !u!212 &436434334
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -765,7 +766,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -790,6 +791,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -945,6 +947,18 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7b26979bbe2d54296ca992c01524ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &601792290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,7 +1620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &795554902
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1978,6 +1992,7 @@ GameObject:
   - component: {fileID: 1625269047}
   - component: {fileID: 1625269046}
   - component: {fileID: 1625269048}
+  - component: {fileID: 1625269049}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2025,7 +2040,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 101dbb9954b5a5340b79ca9f5943cb3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2177,7 +2192,7 @@ MonoBehaviour:
   stats: {fileID: 1625269047}
   targetStat: hp
   healAmount: 16
-  killAmount: 4
+  killAmount: 8
 --- !u!114 &1625269047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2223,7 +2238,31 @@ MonoBehaviour:
         m_Calls: []
     onStatEnd:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1625269049}
+          m_TargetAssemblyTypeName: SceneCaller, Assembly-CSharp
+          m_MethodName: SetFX
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 943cee81f20c89e4381b2317742e95c2, type: 2}
+            m_ObjectArgumentAssemblyTypeName: Transition, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1625269049}
+          m_TargetAssemblyTypeName: SceneCaller, Assembly-CSharp
+          m_MethodName: FXLoadScene
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1625269048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,6 +2277,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 1625269047}
   targetGroup: player
+--- !u!114 &1625269049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625269039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d89ccd8c21bea4681eae12bfc8e17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1694755659
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,8 +2468,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 601792294}
   - {fileID: 519420032}
-  - {fileID: 1625269041}
   - {fileID: 120514965}
+  - {fileID: 1625269041}
   - {fileID: 605064684}
   - {fileID: 209177742}
   - {fileID: 1742416217}

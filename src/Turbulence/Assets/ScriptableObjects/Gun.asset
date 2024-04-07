@@ -16,11 +16,12 @@ MonoBehaviour:
   Sprite: {fileID: 21300000, guid: f4c1e82776c28c54993adaacdf2df031, type: 3}
   WeaponScale: 1
   HoldDistance: 1
-  Cooldown: 0.33333334
-  BulletSprite: {fileID: 21300000, guid: 031dc4527d1d4054a9680e694eab71c2, type: 3}
-  BulletAmount: 10
-  BulletSpeed: 8
-  BulletDamage: 20
-  BulletStartDistance: 0.65
-  BulletScale: 0.75
-  Firerate: 3
+  Cooldown: -0.0064017954
+  bullet: {fileID: 8042065907583380077, guid: 25c4e1cbfc3a246489ebd1f588bc9db9, type: 3}
+  bulletStartDistance: 0.5
+  bulletSpeed: 10
+  bulletDamage: 10
+  firerate: 1
+  bulletLife: 3
+  knockback: 2
+  magazineSize: 8
