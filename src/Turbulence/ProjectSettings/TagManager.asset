@@ -14,8 +14,8 @@ TagManager:
   - Volume
   - Enemy
   - Bullet
-  - 
-  - 
+  - WormFood
+  - Worm
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: WUI
+    uniqueID: 2250320105
     locked: 0
   - name: UI
     uniqueID: 2896059905

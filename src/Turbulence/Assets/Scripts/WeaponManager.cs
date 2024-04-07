@@ -10,7 +10,6 @@ public class WeaponManager : MonoBehaviour
             weapon = value;
             if (weapon == null)
             {
-                Weapon = null;
                 sr.sprite = null;
                 return;
             }
@@ -24,6 +23,7 @@ public class WeaponManager : MonoBehaviour
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        Weapon = weapon;
     }
     private void Update()
     {

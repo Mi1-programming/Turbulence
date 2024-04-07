@@ -107,6 +107,7 @@ MonoBehaviour:
   drops:
   - {fileID: 11400000, guid: c2c06a1e2b6a1ab4eb0f474b8e3e048b, type: 2}
   - {fileID: 11400000, guid: 03f4723c400dcac4d83d74606408f673, type: 2}
+  - {fileID: 11400000, guid: 0b28c7b649f399e4faee3ecdef5ff1b8, type: 2}
 --- !u!58 &-5491752291629211059
 CircleCollider2D:
   m_ObjectHideFlags: 0
