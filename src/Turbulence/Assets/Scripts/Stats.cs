@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 
 [System.Serializable]
+public class StatValueBroadcast
+{
+    public Vector2 limit;
+    public float multiplier;
+    public UnityEvent<float> onStatUpdate;
+    public UnityEvent<float> onStatUpdateInverse;
+}
+[System.Serializable]
 public class Stat
 {
     // Main properties
@@ -14,8 +22,7 @@ public class Stat
     public float startingRandomness = 0.5f;
 
     // EVENTS
-    public UnityEvent<float> onStatUpdate;
-    public UnityEvent<float> onStatUpdateInverse;
+    public StatValueBroadcast[] broadcasts;
     public UnityEvent onStatIncrease;
     public UnityEvent onStatDecrease;
     public UnityEvent onStatEnd;
@@ -32,9 +39,14 @@ public class Stat
 
             float normVal = value / startingValue; // Create variable with the value normalized to the range of 0 to 1
 
-            // Invoke events
-            onStatUpdate.Invoke(normVal); // Send the normalized value to event
-            onStatUpdateInverse.Invoke(1.0f - normVal); // Invert the normalized value to event
+            foreach (var cast in broadcasts)
+            {
+                float limitedValue = Mathf.Clamp(normVal, cast.limit.x, cast.limit.y) * cast.multiplier;
+
+                // Invoke events
+                cast.onStatUpdate.Invoke(limitedValue); // Send the normalized value to event
+                cast.onStatUpdateInverse.Invoke(1.0f - limitedValue); // Invert the normalized value to event
+            }
 
             // Differentiate between adding and taking away value as events
             if (curValue > value) onStatDecrease.Invoke();

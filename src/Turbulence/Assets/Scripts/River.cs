@@ -18,6 +18,7 @@ public class River : MonoBehaviour
     [SerializeField] private float jumpTime = 10.0f;
     [SerializeField] private int step = 4;
     [SerializeField] private int deathStep = 1;
+    [SerializeField] private float pathContinueAnimationTime = 0.1f;
     [SerializeField] private UnityEvent<Vector3> onJump;
 
     private float lastNormal = 0.0f;
@@ -62,19 +63,24 @@ public class River : MonoBehaviour
         Vector3 curPos = spline.GetPosition(pc - 1);
         onJump.Invoke(curPos);
     }
+    private IEnumerator IContinuePath(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            yield return new WaitForSeconds(pathContinueAnimationTime);
+            BuildPath();
+            SendJumpEvent();
+        }
+    }
     public void ContinuePath(int amount)
     {
-        for (int i = 0;i < amount; i++) BuildPath();
-        SendJumpEvent();
+        StartCoroutine(IContinuePath(amount));
     }
-    private IEnumerator Start()
+    public IEnumerator IStartSnake()
     {
         spline = ssc.spline;
         spline.Clear();
-
-        for (int i = 0; i < maxLength; i++) BuildPath();
-
-        SendJumpEvent();
+        ContinuePath(maxLength);
 
         while (true)
         {
@@ -88,5 +94,17 @@ public class River : MonoBehaviour
 
             SendJumpEvent();
         }
+    }
+    public void StartSnake()
+    {
+        StartCoroutine(IStartSnake());
+    }
+    private void OnEnable()
+    {
+        GameManager.instance.onGameBegin += StartSnake;
+    }
+    private void OnDisable()
+    {
+        GameManager.instance.onGameBegin -= StartSnake;
     }
 }

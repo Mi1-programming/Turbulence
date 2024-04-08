@@ -21,7 +21,7 @@ public class Transition : ScriptableObject
 
         while (waited < duration)
         {
-            waited += Time.deltaTime * 2;
+            waited += Time.unscaledDeltaTime * 2;
             yield return 0;
         }
     }
@@ -29,7 +29,7 @@ public class Transition : ScriptableObject
     {
         while (waited > 0)
         {
-            waited -= Time.deltaTime * 2;
+            waited -= Time.unscaledDeltaTime * 2;
             yield return 0;
         }
 

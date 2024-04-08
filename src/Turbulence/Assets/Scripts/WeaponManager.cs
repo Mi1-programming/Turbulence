@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WeaponManager : MonoBehaviour
 {
+    [SerializeField] private UnityEvent<string> onAmmoChange;
+    [SerializeField] private UnityEvent onUse;
     public Weapon weapon;
     public Weapon Weapon
     {
@@ -14,8 +17,7 @@ public class WeaponManager : MonoBehaviour
                 return;
             }
             weapon.Setup();
-            sr.sprite = weapon.Sprite;
-            transform.localPosition = Vector2.right * weapon.HoldDistance;
+            sr.sprite = weapon.sprite;
         }
     }
     private SpriteRenderer sr;
@@ -27,15 +29,24 @@ public class WeaponManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Weapon == null) return;
+        if (Weapon == null)
+        {
+            onAmmoChange.Invoke("");
+            return;
+        }
+        onAmmoChange.Invoke($"{Weapon.ammo} / {Weapon.magazineSize}");
 
         Weapon.DecreaseCooldown();
-        if (Input.GetMouseButton(0))
+
+        if (!Input.GetMouseButton(0)) return;
+
+        if (Weapon.Cooldown > 0) return;
+        Weapon.Cooldown = 1 / Weapon.firerate;
+
+        onUse.Invoke();
+        if (Weapon.Use(transform.position, transform.right))
         {
-            if (Weapon.Use(transform.position, transform.right))
-            {
-                Weapon = null;
-            }
+            Weapon = null;
         }
     }
 }

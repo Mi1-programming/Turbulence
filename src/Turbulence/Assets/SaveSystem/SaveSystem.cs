@@ -112,13 +112,10 @@ public class SaveSystem : MonoBehaviour
         data[_key] = _o;
         Instance.UpdateDebug();
     }
-
     public static object GetValue(string _key)
     {
         return data.ContainsKey(_key) ? data[_key] : null;
     }
-
-
 
     // SAVE AND LOAD
 

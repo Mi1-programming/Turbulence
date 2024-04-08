@@ -119,6 +119,8 @@ GameObject:
   - component: {fileID: 2890498606089563752}
   - component: {fileID: 3544025637396022144}
   - component: {fileID: 8308059830321096269}
+  - component: {fileID: -3883969265602019451}
+  - component: {fileID: 2629485713867941356}
   m_Layer: 8
   m_Name: Bomb
   m_TagString: Untagged
@@ -199,7 +201,7 @@ AudioSource:
   m_GameObject: {fileID: 7390359213139777666}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: fb46be2f7e1551e48a6869203860795f, type: 2}
   m_audioClip: {fileID: 8300000, guid: ef6b1d6d297595f4d8087259c0593f89, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
@@ -301,5 +303,45 @@ MonoBehaviour:
   despawnTime: 10
   onDespawn:
     m_PersistentCalls:
-      m_Calls: []
-  delay: 0
+      m_Calls:
+      - m_Target: {fileID: 2629485713867941356}
+        m_TargetAssemblyTypeName: AnimationPlayer, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delay: 0.5
+--- !u!111 &-3883969265602019451
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7390359213139777666}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 7a89a1a7425c83c42b3d17841f7498ba, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 7a89a1a7425c83c42b3d17841f7498ba, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &2629485713867941356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7390359213139777666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0338da97b57e14d9de49e1bf6009f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

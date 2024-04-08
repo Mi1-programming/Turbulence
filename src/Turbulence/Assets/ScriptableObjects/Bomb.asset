@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bomb
   m_EditorClassIdentifier: 
   Name: Bomb
-  Sprite: {fileID: 21300000, guid: 8dcb7924e976f384b87c54c5a8289788, type: 3}
-  WeaponScale: 1
-  HoldDistance: 1
-  Cooldown: 0
+  sprite: {fileID: 21300000, guid: 8dcb7924e976f384b87c54c5a8289788, type: 3}
+  magazineSize: 1
+  firerate: 1
+  Cooldown: 1
   Prefab: {fileID: 7390359213139777666, guid: 6980ec5efa53885478d22ba18775bcaf, type: 3}

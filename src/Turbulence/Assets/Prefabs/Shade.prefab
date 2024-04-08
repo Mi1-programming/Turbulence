@@ -41,7 +41,7 @@ AudioSource:
   m_GameObject: {fileID: 448735579748352178}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: fb46be2f7e1551e48a6869203860795f, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1264d9ed00f5b51478f471579f49fc88, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -375,24 +375,27 @@ MonoBehaviour:
     hasFloor: 1
     hasCeiling: 0
     startingRandomness: 0.5
-    onStatUpdate:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4671479975138199294}
-          m_TargetAssemblyTypeName: Scaler, Assembly-CSharp
-          m_MethodName: SetScale
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onStatUpdateInverse:
-      m_PersistentCalls:
-        m_Calls: []
+    broadcasts:
+    - limit: {x: 0.5, y: 10}
+      multiplier: 1
+      onStatUpdate:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 4671479975138199294}
+            m_TargetAssemblyTypeName: Scaler, Assembly-CSharp
+            m_MethodName: SetScale
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      onStatUpdateInverse:
+        m_PersistentCalls:
+          m_Calls: []
     onStatIncrease:
       m_PersistentCalls:
         m_Calls: []
@@ -460,7 +463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3212a6df63308f04f882fe28a012dc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleRange: {x: 0.5, y: 1}
 --- !u!114 &5786968664558639627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5365,7 +5367,7 @@ AudioSource:
   m_GameObject: {fileID: 6132157325482925628}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: fb46be2f7e1551e48a6869203860795f, type: 2}
   m_audioClip: {fileID: 8300000, guid: 032ba1cd6d2d82041a4b344e77d340a9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.75
